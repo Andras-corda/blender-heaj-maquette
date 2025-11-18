@@ -1,0 +1,425 @@
+/* =============================================
+   VARIABLES - YOUTUBE DARK THEME
+============================================= */
+:root {
+    --bg-dark: #181818;           /* fond principal */
+    --bg-darker: #202020;         /* fond des cartes / sections */
+    --card-bg: #202020;
+    --text-light: #e0e0e0;        /* texte principal */
+    --text-muted: #aaaaaa;        /* texte secondaire */
+    --accent: #FF0000;            /* accent rouge YouTube */
+    --accent-soft: rgba(255,0,0,0.15);
+    --radius: 8px;
+    --transition: 200ms ease;
+    --max-width: 1100px;
+}
+
+/* =============================================
+   RESET + PAGE
+============================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", system-ui, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* Containers */
+header,
+footer {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+main {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 2rem 1.25rem;
+}
+
+/* Header général */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    background: #181818; /* fond sombre YouTube */
+    border-bottom: 1px solid #303030;
+    flex-wrap: wrap;
+}
+
+/* Logo */
+.header__logo h1 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Navigation */
+.header__nav .nav__list {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__item a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: background 200ms ease;
+}
+
+.nav__item a:hover {
+    background: #282828;
+}
+
+/* Zone utilisateur */
+.header__user {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.user__link {
+    color: #ff0000; /* accent rouge YouTube pour actions */
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: background 200ms ease;
+}
+
+.user__link:hover {
+    background: rgba(255,0,0,0.15);
+}
+
+/* Responsive small screens */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .header__nav .nav__list {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .header__user {
+        flex-wrap: wrap;
+    }
+}
+
+/* Logo */
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header__logo h1 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.header__logo .logo {
+    width: 40px;        /* largeur du logo */
+    height: 40px;       /* hauteur du logo */
+    object-fit: contain; /* garder proportions */
+    border-radius: 4px; /* optionnel, coins arrondis */
+}
+
+.footer {
+    background: #181818;
+    color: #ccc;
+    padding: 2rem;
+    border-top: 1px solid #303030;
+    font-size: 0.9rem;
+}
+
+.footer__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.footer__col {
+    flex: 1 1 200px;
+}
+
+.footer__col h3 {
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.footer__col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer__col a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer__col a:hover {
+    color: #ff4d4d; /* effet hover rouge */
+}
+
+.footer__col-logo {
+    text-align: left;
+}
+
+.footer__logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+}
+
+.footer__socials a {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+
+
+/* =============================================
+   HERO SECTION
+============================================= */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--bg-darker);
+    border-radius: var(--radius);
+}
+
+.hero__title {
+    font-size: 2.2rem;
+    margin: 0 0 .5rem 0;
+}
+
+.hero__description {
+    color: var(--text-muted);
+    max-width: 60ch;
+    margin: 0;
+}
+
+.hero__image {
+    width: 100%;
+    height: 260px;
+    border-radius: var(--radius);
+    background: #282828;
+    border: 1px solid #303030;
+    object-fit: cover;
+}
+
+/* =============================================
+   PLAYLISTS SECTION
+============================================= */
+.playlists {
+    margin-top: 2rem;
+}
+
+.playlists__title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.playlists__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.playlist-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid #303030;
+    transition: transform var(--transition), background var(--transition);
+    cursor: pointer;
+}
+
+.playlist-card:hover {
+    background: #2a2a2a;
+    transform: translateY(-2px);
+}
+
+.playlist-card__thumb {
+    width: 96px;
+    height: 96px;
+    border-radius: 6px;
+    object-fit: cover;
+    background: #282828;
+    border: 1px solid #303030;
+}
+
+.playlist-card__body h3 {
+    margin: 0 0 0.35rem 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.playlist-card__body p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.playlist-card__videos {
+    margin: 0 0 0.35rem 0;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* =============================================
+   "Voir plus" CARD
+============================================= */
+.playlist-card--more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,0,0,0.08);
+    border: 1px dashed rgba(255,0,0,0.3);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all var(--transition);
+    width: 100%;
+    min-height: 120px;
+}
+
+.playlist-card--more:hover {
+    background: rgba(255,0,0,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,0,0,0.3);
+}
+
+.playlist-card__more-text {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* =============================================
+   FORUM SECTION
+============================================= */
+.forum {
+    background: var(--bg-darker);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border: 1px solid #303030;
+}
+
+.forum__title {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+}
+
+.forum__description {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.forum__placeholder {
+    border: 2px dashed rgba(255,0,0,0.3);
+    background: rgba(255,0,0,0.05);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.hamster-section {
+    background: #202020; /* correspond au fond sombre des cartes */
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    border: 1px solid #303030;
+    text-align: center;
+}
+
+.hamster-section__title {
+    font-size: 1.6rem;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+}
+
+.hamster-section__description {
+    color: #aaaaaa;
+    margin-bottom: 1.5rem;
+}
+
+/* Centrer l'animation */
+.wheel-and-hamster {
+    margin: 0 auto;
+}
+
+.rgpd-section {
+    background: #181818; /* fond sombre similaire au reste du site */
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    border: 1px solid #303030;
+    text-align: center;
+}
+
+.rgpd-section__title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.rgpd-section__description,
+.rgpd-section__note {
+    color: #cccccc;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero__image {
+        height: 200px;
+    }
+}
